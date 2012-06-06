@@ -52,3 +52,23 @@ exports['Subscribe with Object Example and Post Message'] = function(test) {
 	bus.post({ topic: "foo", amount: 3000});
 }
 
+exports['Subscribe with Object Example containing Property Predicate and Post Message'] = function(test) {
+	test.expect(2);
+	var bus = simplebus.createBus();
+	bus.subscribe({
+			topic: "foo",
+			amount: function(amount) { return amount > 9000; }
+		}, 
+		function(msg) {
+			test.equal(msg.topic, "foo");
+			test.equal(msg.amount, 10000);
+			test.done();
+		});
+	bus.post({ topic: "bar", amount: 1000});
+	bus.post({ topic: "bar", amount: 2000});
+	bus.post({ topic: "foo", amount: 3000});
+	bus.post({ topic: "foo", amount: 4000});
+	bus.post({ topic: "foo", amount: 9000});
+	bus.post({ topic: "foo", amount: 10000});
+}
+
