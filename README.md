@@ -10,15 +10,53 @@ Via npm on Node:
 npm install simplebus
 ```
 
+## Usage
+
 Reference in your program:
 
 ```js
 var simplebus = require('simplebus');
 ```
 
-## Usage
+Create a local message bus:
+```js
+var bus = simplebus.createBus();
+```
 
-TBD
+Send a message to local bus:
+```js
+bus.post("foo");
+bus.post({ operation: 'sale', price: 100, quantity: 10 });
+```
+
+Subscribe to a message
+```js
+// to all message
+bus.subscribe(null, function (msg) { ... });
+// to messages with property operation === 'sale'
+bus.subscribe({ operation: 'sale' }, function(msg) { ... });
+// to messages that satisfy a predicate
+bus.subscribe(function (msg) { return msg.price < 100; }, function(msg) { ... });
+```
+
+Expose a bus as a server:
+```js
+var server = simplebus.createServer(bus, port, [host]);
+server.start();
+///
+server.stop();
+```
+
+Consume as a client:
+```js
+var client = simplebus.createClient(port, [host]);
+client.start(function () {
+	client.post("foo");
+	client.subscribe(function (msg) { return msg.price > 100 }, function (msg) { .... });
+});
+///
+client.stop();
+```
 
 ## Development
 
