@@ -50,7 +50,7 @@ server.stop();
 Consume as a client:
 ```js
 var client = simplebus.createClient(port, [host]);
-client.start(function () {
+client.start(function () { // callback when connection is OK
 	client.post("foo");
 	client.subscribe(function (msg) { return msg.price > 100 }, function (msg) { .... });
 });
