@@ -71,6 +71,10 @@ npm test
 
 TBD
 
+## Versions
+
+- 0.0.1 Published.
+
 ## Contribution
 
 Feel free to [file issues](https://github.com/ajlopez/SimpleBus) and submit
