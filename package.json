@@ -1,7 +1,7 @@
 { "name": "simplebus"
 , "description": "Simple Service Bus for Node.js, Work in Progress"
 , "keywords": [ "messaging", "service bus", "nodejs", "javascript" ]
-, "version": "0.0.1"
+, "version": "0.0.2"
 , "author": "Angel 'Java' Lopez <webmaster@ajlopez.com> (http://www.ajlopez.com)"
 , "repository": { "type": "git", "url": "git://github.com/ajlopez/SimpleBus.git" }
 , "main": "./lib/simplebus.js"
