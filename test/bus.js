@@ -94,3 +94,24 @@ exports['Subscribe with Object Example containing Property Predicate and Post Tw
 	bus.post({ topic: "foo", amount: 12000});
 }
 
+exports['Create bus with size'] = function(test) {
+	test.expect(4);
+	var bus = simplebus.createBus(2);
+    
+    for (var k = 1; k <= 4; k++)
+      	bus.post({ topic: "bar", amount: 1000 * k});
+        
+    var total = 0;
+
+	setImmediate(function () { bus.subscribe({
+			topic: "bar"
+		}, 
+		function(msg) {            
+			test.equal(msg.topic, "bar");
+			test.ok(msg.amount >= 1000);
+            total += msg.amount;
+            if (total == 3000 + 4000)
+                test.done();
+		})
+        });
+}

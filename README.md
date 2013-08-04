@@ -22,6 +22,10 @@ Create a local message bus:
 ```js
 var bus = simplebus.createBus();
 ```
+Create a local message bus with a fixed size message queue (recommended):
+```js
+var bus = simplebus.createBus(1000);
+```
 
 Send a message to local bus:
 ```js
@@ -69,11 +73,13 @@ npm test
 
 ## Samples
 
-TBD
+- [Market](https://github.com/ajlopez/SimpleBus/tree/master/samples/Market) A distributed sample. Operator
+send buy or sale messages, subscriber listen to selected messages.
 
 ## Versions
 
-- 0.0.1 Published.
+- 0.0.1: Published
+- 0.0.2: Published, bus with maximum message queue size
 
 ## Contribution
 
