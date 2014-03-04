@@ -80,6 +80,7 @@ send buy or sale messages, subscriber listen to selected messages.
 
 - 0.0.1: Published
 - 0.0.2: Published, bus with maximum message queue size
+- 0.0.3: Published, using SimpleRemote 0.0.5, updated engine range
 
 ## Contribution
 
