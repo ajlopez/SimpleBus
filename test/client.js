@@ -118,3 +118,14 @@ exports['Client Subscribe to Message using a Predicate'] = function(test) {
         bus.post({ operation: 'sale', price: 20, quantity: 1 });
     });
 }
+
+exports['Client Gracefully Errored when no Connection to Server'] = function(test) {
+    var times = 0;
+    var client = simplebus.createClient(3001);
+    client.start(function () {});
+    client.on("error", function() {
+        if (++times == 2) { //it is a bit unclear why it's called twice
+            test.done();
+        }
+    });
+}
