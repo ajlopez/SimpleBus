@@ -7,13 +7,13 @@
 , "main": "./lib/simplebus.js"
 , "engines": { "node": ">= 0.6.0 && < 0.11.0" }
 , "scripts": {
-    "test": "nodeunit test"
+    "test": "simpleunit test"
   }
 , "dependencies": {
 	"simpleremote": "0.0.5",
 	"simplefunc": "0.0.2"
   }
 , "devDependencies": {
-    "nodeunit": ">= 0.7.4"
+    "simpleunit": "0.0.6"
   }
 }

@@ -8,7 +8,7 @@ exports['Create Bus'] = function(test) {
 }
 
 exports['Post Message and Subscribe'] = function(test) {
-	test.expect(1);
+	test.async();
 	var bus = simplebus.createBus();
 	bus.post("foo");
 	bus.subscribe(null, function(msg) {
@@ -18,7 +18,7 @@ exports['Post Message and Subscribe'] = function(test) {
 }
 
 exports['Subscribe and Post Message'] = function(test) {
-	test.expect(1);
+	test.async();
 	var bus = simplebus.createBus();
 	bus.subscribe(null, function(msg) {
 		test.equal(msg, "foo");
@@ -28,7 +28,7 @@ exports['Subscribe and Post Message'] = function(test) {
 }
 
 exports['Subscribe with Predicate and Post Message'] = function(test) {
-	test.expect(1);
+	test.async();
 	var bus = simplebus.createBus();
 	bus.subscribe(function(msg) { return msg == "foo" }, function(msg) {
 		test.equal(msg, "foo");
@@ -40,7 +40,7 @@ exports['Subscribe with Predicate and Post Message'] = function(test) {
 }
 
 exports['Subscribe with Object Example and Post Message'] = function(test) {
-	test.expect(2);
+	test.async();
 	var bus = simplebus.createBus();
 	bus.subscribe({ topic: "foo" }, function(msg) {
 		test.equal(msg.topic, "foo");
@@ -53,7 +53,7 @@ exports['Subscribe with Object Example and Post Message'] = function(test) {
 }
 
 exports['Subscribe with Object Example containing Property Predicate and Post Message'] = function(test) {
-	test.expect(2);
+	test.async();
 	var bus = simplebus.createBus();
 	bus.subscribe({
 			topic: "foo",
@@ -73,7 +73,7 @@ exports['Subscribe with Object Example containing Property Predicate and Post Me
 }
 
 exports['Subscribe with Object Example containing Property Predicate and Post Two Messages'] = function(test) {
-	test.expect(4);
+	test.async();
 	var bus = simplebus.createBus();
 	bus.subscribe({
 			topic: "foo",
@@ -95,7 +95,7 @@ exports['Subscribe with Object Example containing Property Predicate and Post Tw
 }
 
 exports['Create bus with size'] = function(test) {
-	test.expect(4);
+	test.async();
 	var bus = simplebus.createBus(2);
     
     for (var k = 1; k <= 4; k++)

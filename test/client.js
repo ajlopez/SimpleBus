@@ -5,7 +5,7 @@ exports['Create Server, Client'] = function(test) {
 	var bus = simplebus.createBus();
     var server = simplebus.createServer(bus, 3001);
     
-    test.expect(0);
+    test.async();
     
     server.start();
     
@@ -21,7 +21,7 @@ exports['Create Server, Client'] = function(test) {
 exports['Post Message from Client to Server'] = function(test) {
 	var bus = simplebus.createBus();
 
-    test.expect(1);
+    test.async();
 
 	bus.subscribe(null, function(msg) {
 		test.equal(msg, "foo");
@@ -44,7 +44,7 @@ exports['Post Message from Client to Server'] = function(test) {
 exports['Client Subscribe to All Message'] = function(test) {
 	var bus = simplebus.createBus();
 
-    test.expect(1);
+    test.async();
     
     var server = simplebus.createServer(bus, 3001);
         
@@ -67,7 +67,7 @@ exports['Client Subscribe to All Message'] = function(test) {
 exports['Client Subscribe to Message with Property/Value'] = function(test) {
 	var bus = simplebus.createBus();
 
-    test.expect(4);
+    test.async();
     
     var server = simplebus.createServer(bus, 3001);
         
@@ -95,7 +95,7 @@ exports['Client Subscribe to Message with Property/Value'] = function(test) {
 exports['Client Subscribe to Message using a Predicate'] = function(test) {
 	var bus = simplebus.createBus();
 
-    test.expect(4);
+    test.async();
     
     var server = simplebus.createServer(bus, 3001);
         
