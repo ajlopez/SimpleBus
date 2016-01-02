@@ -5,7 +5,7 @@
 , "author": "Angel 'Java' Lopez <webmaster@ajlopez.com> (http://www.ajlopez.com)"
 , "repository": { "type": "git", "url": "git://github.com/ajlopez/SimpleBus.git" }
 , "main": "./lib/simplebus.js"
-, "engines": { "node": ">= 0.6.0 && < 0.11.0" }
+, "engines": { "node": ">= 0.10.0" }
 , "scripts": {
     "test": "simpleunit test"
   }
@@ -14,6 +14,6 @@
 	"simplefunc": "0.0.2"
   }
 , "devDependencies": {
-    "simpleunit": "0.0.6"
+    "simpleunit": "0.0.7"
   }
 }
